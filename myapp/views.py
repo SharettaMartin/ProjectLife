@@ -7,7 +7,16 @@ from .models import Donor, Patient
 # Create your views here.POST]
 
 def home(request):
-  return render(request, 'myapp/home.html', {})
+  return render(request, 'myapp/landing.html', {})
+
+def patient(request):
+  return render(request, 'myapp/patient.html', {})
+
+def profile(request):
+  return render(request, 'myapp/profile.html', {})
+
+def patient_detail(request):
+  return render(request, 'myapp/detail.html', {})
 
 def donor_views(request):
     form = DonorForm (request.POST or None)
