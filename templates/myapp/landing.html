@@ -25,10 +25,7 @@
 
   <div class="container-1">
       <div class="box-1">
-        <video width="600" height="400" autoplay>
-          <source src="assets/projectlifevid.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+        
 
       </div>
 
@@ -41,9 +38,10 @@
           <button class="button">Start</button></a>
         </div>
 
-        <div class="boxinfo">
+        <form action="{% url 'new_donor' %}" class="boxinfo">
           <h4> I want to donate an organ. </h4>
-          <button class="button">Start</button></a>
+          <input type="submit" value="Start" />
+        </form>
         </div>
             
 
@@ -56,12 +54,12 @@
 
 
   {% endblock %}
-  </div>
+ 
   
 
 
 
-<!-- </div> -->
+
 
 </body>
 </html>
