@@ -8,11 +8,11 @@ class Patient(models.Model):
     name = models.CharField(max_length=100)
     birthday = models.DateField(null=True, blank=True)
     city = models.CharField(max_length=255)
-    # state = USStateField(null=True, blank=True)                  
-    # zip_code = USZipCodeField(null=True, blank=True)
+    state = models.CharField(max_length=255)                  
+    zip_code = models.IntegerField(null=True, blank=True)
     avatar = models.ImageField(upload_to='static/images', null=True, blank=True)
     blood_type = models.CharField(max_length=100)
-    hospital = models.CharField(max_length=100)
+    hospital = models.CharField(max_length=100, null=True, blank=True)
     need = models.CharField(max_length=100)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -23,3 +23,8 @@ class Donor(models.Model):
     donation_type = models.CharField(max_length=100)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+class Response(models.Model):
+  message = models.TextField(default='Your message goes here')
+  patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='responses')
+  def __str__(self):
+    return f"{self.message}"

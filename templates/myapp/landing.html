@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="styles.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="{% static 'stylesthree.css' %}">
 <style>
 
@@ -34,7 +34,7 @@
         
         <div class="boxinfo">
           <h4> I need to find an organ donor. </h4>
-          <a href="/patient">
+          <a href="{% url 'patient' %}">
           <button class="button">Start</button></a>
         </div>
 
