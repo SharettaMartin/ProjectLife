@@ -1,27 +1,54 @@
 # from django.views.generic import TemplateView
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .forms import DonorForm
+from .forms import DonorForm, PatientForm, ResponseForm
 from .models import Donor, Patient
 
 
 # Create your views here.POST]
 
 def home(request):
-  return render(request, 'myapp/landing.html', {})
+   return render(request, 'myapp/landing.html', {})
 
 def patient(request):
-  return render(request, 'myapp/patient.html', {})
+  form = PatientForm()
+  if request.method == 'POST':
+    form = PatientForm(request.POST)
+    if form.is_valid():
+     
+      patient = form.save(commit=False)
+      patient.user = request.user
+      patient.save()
+      return redirect(to='patient_dashboard', pk=patient.pk)
+  context = {
+    'form': form
+  }
+  return render(request, 'myapp/patient.html', context)
 
-def profile(request):
-  return render(request, 'myapp/profile.html', {})
+def profile(request, pk):
+  patient = get_object_or_404(Patient, pk=pk)
+  return render(request, 'myapp/public_profile.html', {"patient": patient})
 
-def patient_detail(request):
-  return render(request, 'myapp/detail.html', {})
+def patient_detail(request, pk):
+  patient = get_object_or_404(Patient, pk=pk)
+  form = ResponseForm()
+  if request.method == 'POST':
+    form = ResponseForm(request.POST)
+    if form.is_valid():
+      response = form.save(commit=False)
+      response.patient = patient
+      response.save()
+      return redirect(to='instructions')
+  context = {
+    'form': form
+  }
+  return render(request, 'myapp/detail.html', context)
 
 @login_required
 def new_donor(request):
-    form = DonorForm (request.POST or None)
+    
+    form = DonorForm(request.POST or None)
+    
     if form.is_valid():
         donor = form.save(commit=False)
         donor.user = request.user
@@ -32,6 +59,8 @@ def new_donor(request):
      }
     return render(request, 'myapp/donor_create.html', context)
 
+def instructions(request):
+   return render(request, 'myapp/instructions.html', {})
 # def home(TemplateView):
     # template = 'home/home.html'
 
