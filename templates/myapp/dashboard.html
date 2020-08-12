@@ -23,7 +23,8 @@
             {% for response in patient.responses.all %}
              <li>{{ response }}</li>
              {% endfor %}
-            <li><a href="#", href="/detail"><i class="fas fa-user"><a href="/detail"></i>Profile</a></li>
+             
+            <li><a href="#", href="{% url 'profile' pk=patient.pk %}"><i class="fas fa-user"><a href="{% url 'profile' pk=patient.pk %}"></i>Profile</a></li>
         </ul> 
     </div>
     <div class="main_content">

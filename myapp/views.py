@@ -24,12 +24,14 @@ def patient(request):
     'form': form
   }
   return render(request, 'myapp/patient.html', context)
-
-def profile(request, pk):
+#change to dashboard
+def dashboard(request, pk):
   patient = get_object_or_404(Patient, pk=pk)
-  return render(request, 'myapp/public_profile.html', {"patient": patient})
+  #change to dashboard
+  return render(request, 'myapp/dashboard.html', {"patient": patient})
 
-def patient_detail(request, pk):
+#change to patient_profile
+def profile(request, pk):
   patient = get_object_or_404(Patient, pk=pk)
   form = ResponseForm()
   if request.method == 'POST':
@@ -42,7 +44,8 @@ def patient_detail(request, pk):
   context = {
     'form': form
   }
-  return render(request, 'myapp/detail.html', context)
+  #change to profile
+  return render(request, 'myapp/profile.html', context)
 
 @login_required
 def new_donor(request):
@@ -87,28 +90,5 @@ def instructions(request):
 #               return redirect(to='')
 #       return render(request, 'myapp/donor.html', {})
 
-# def list_contacts(request):
-#     contacts = Contact.objects.all()
-#     if request.method == 'GET':
-#         form = ContactForm()
-#     else:
-#         form = ContactForm(data=request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect(to='list_contacts')
-#     return render(request, "contacts/list_contacts.html",
-#                   {"contacts": contacts, 'form':form})
-
-
-# def add_contact(request):
-#     if request.method == 'GET':
-#         form = ContactForm()
-#     else:
-#         form = ContactForm(data=request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect(to='list_contacts')
-
-#     return render(request, "contacts/add_contact.html", {"form": form})
 
   
