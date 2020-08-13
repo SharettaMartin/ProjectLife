@@ -23,7 +23,9 @@ urlpatterns = [
 
 
     #detail to profile name
-    path('profile/<int:pk>', views.profile, name='profile')
+    path('profile/<int:pk>', views.profile, name='profile'),
+
+    path('responses/', views.responses, name='responses'),
 
 
     # path('myapp/donor', myapp_views.donor_views, name='donor_views'),

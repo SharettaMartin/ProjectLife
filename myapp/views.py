@@ -64,6 +64,9 @@ def new_donor(request):
 
 def instructions(request):
    return render(request, 'myapp/instructions.html', {})
+
+def responses(request):
+   return render(request, 'myapp/responses.html', {})
 # def home(TemplateView):
     # template = 'home/home.html'
 

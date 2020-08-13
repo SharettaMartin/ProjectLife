@@ -19,7 +19,7 @@
         <h2>Project Life</h2>
         <ul>
             <li>Home</li>
-            <ul>Responses</ul>
+            <ul><a href="{% url 'responses' %}">Responses</a></ul>
             {% for response in patient.responses.all %}
              <li>{{ response }}</li>
              {% endfor %}
