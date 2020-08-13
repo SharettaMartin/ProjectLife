@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Side Navigation Bar</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+   
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+<body>
+
+
+
+
+<div class="wrapper">
+  {% block content %}
+    <div class="sidebar">
+        <h2>Project Life</h2>
+        <ul>
+            <li>Home</li>
+            <ul><a href="{% url 'responses' %}">Responses</a></ul>
+            {% for response in patient.responses.all %}
+             <li>{{ response }}</li>
+             {% endfor %}
+             
+            <li><a href="#", href="{% url 'profile' pk=patient.pk %}"><i class="fas fa-user"><a href="{% url 'profile' pk=patient.pk %}"></i>Profile</a></li>
+        </ul> 
+    </div>
+    <div class="main_content">
+        <div class="header">
+          <img src="{% static "assets/avatar_female.png" %}" alt="Avatar" class="avatar">
+          <h3>User Name</h3>
+          </div> 
+
+
+        
+
+        
+    </div>
+    
+  {% endblock %}
+</div>
+
+</body>
+</html>

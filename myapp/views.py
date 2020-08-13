@@ -1,20 +1,54 @@
 # from django.views.generic import TemplateView
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .forms import DonorForm
+from .forms import DonorForm, PatientForm, ResponseForm
 from .models import Donor, Patient
 
 
 # Create your views here.POST]
 
 def home(request):
-  return render(request, 'myapp/landing.html', {})
+   return render(request, 'myapp/landing.html', {})
 
+@login_required
 def patient(request):
-  return render(request, 'myapp/patient.html', {})
+  form = PatientForm()
+  if request.method == 'POST':
+    form = PatientForm(request.POST)
+    if form.is_valid():
+     
+      patient = form.save(commit=False)
+      patient.user = request.user
+      patient.save()
+      return redirect(to='patient_dashboard', pk=patient.pk)
+  context = {
+    'form': form
+  }
+  return render(request, 'myapp/patient.html', context)
+#change to dashboard
 
-def profile(request):
-  return render(request, 'myapp/profile.html', {})
+def dashboard(request, pk):
+  patient = get_object_or_404(Patient, pk=pk)
+  #change to dashboard
+  return render(request, 'myapp/dashboard.html', {"patient": patient})
+
+#change to patient_profile
+def profile(request, pk):
+  patient = get_object_or_404(Patient, pk=pk)
+  form = ResponseForm()
+  if request.method == 'POST':
+    form = ResponseForm(request.POST)
+    if form.is_valid():
+      response = form.save(commit=False)
+      response.patient = patient
+      response.save()
+      return redirect(to='instructions')
+  context = {
+    'form': form
+  }
+  #change to profile
+  return render(request, 'myapp/profile.html', context)
+
 
 def patient_detail(request, pk):
   patient = Patient.objects.get(pk=pk)
@@ -23,9 +57,11 @@ def patient_detail(request, pk):
     }  
   return render(request, 'myapp/detail.html', context)
 
-@login_required
+
 def new_donor(request):
-    form = DonorForm (request.POST or None)
+    
+    form = DonorForm(request.POST or None)
+    
     if form.is_valid():
         donor = form.save(commit=False)
         donor.user = request.user
@@ -36,6 +72,11 @@ def new_donor(request):
      }
     return render(request, 'myapp/donor_create.html', context)
 
+def instructions(request):
+   return render(request, 'myapp/instructions.html', {})
+
+def responses(request):
+   return render(request, 'myapp/responses.html', {})
 # def home(TemplateView):
     # template = 'home/home.html'
 
@@ -62,28 +103,5 @@ def new_donor(request):
 #               return redirect(to='')
 #       return render(request, 'myapp/donor.html', {})
 
-# def list_contacts(request):
-#     contacts = Contact.objects.all()
-#     if request.method == 'GET':
-#         form = ContactForm()
-#     else:
-#         form = ContactForm(data=request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect(to='list_contacts')
-#     return render(request, "contacts/list_contacts.html",
-#                   {"contacts": contacts, 'form':form})
-
-
-# def add_contact(request):
-#     if request.method == 'GET':
-#         form = ContactForm()
-#     else:
-#         form = ContactForm(data=request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect(to='list_contacts')
-
-#     return render(request, "contacts/add_contact.html", {"form": form})
 
   

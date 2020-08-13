@@ -1,5 +1,7 @@
+
 {% load static %}
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -11,8 +13,7 @@
 
 
 <div class="wrapper">
-  {% block content %}
-    <div class="sidebar">
+      <div class="sidebar">
         <h2>LifeLink</h2>
         <ul>
             <li>Home</li>
@@ -29,13 +30,49 @@
           <img src="{% static "assets/avatar_female.png" %}" alt="Avatar" class="avatar">
           <h3>User Name</h3>
           </div>  
-        
-        <div class="info">
-          
-      </div>
-    </div>
-  {% endblock %}
-</div>
 
-</body>
+  
+      
+      <div class="box-1">
+        <img src="assets/avatar_female.png" alt="Avatar" class="profileavi">
+         <h1>User Name</h1>
+         <button class="button">Share</button>
+
+
+      </div>
+      
+      <div class="box-2">
+        <h2>The Medical Match <br> I am looking for has </h2>
+        <p class="blocktext"> BLOOD TYPE <br> WILLING TO DONATE THIER ___ ORGAN  <br> LIVE NEAR ___ CITY</p>
+      </div>
+      
+
+
+      <div class="box-3">
+        
+
+        <div class="form-wrap">
+            <form method='POST'>
+       {% csrf_token %}
+
+       {{ form.as_p}}
+        <input type="submit" value="SUBMIT" />
+
+          </form>
+        </div>
+
+        
+      </div>
+
+      
+
+
+   
+    </div>
+
+
+
+
+
+  </body>
 </html>

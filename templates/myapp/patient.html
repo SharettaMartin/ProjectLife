@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Input Form</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />    
+    <link href="static/styles.css" rel="stylesheet" type="text/css" />    
 </head>
 <style>
     *{margin: 0; padding: 0;}
@@ -18,7 +18,7 @@
 
     input{width: 100%; background: none; border: 1px solid #fff ; border-radius: 3px; padding: 6px 15px; box-sizing: border-box; margin-bottom: 20px; font-size: 16px;}
 
-    input[type="button"]{background: #fff; border: 0; color: #f7ab54;}
+    
 
     ::placeholder{color: #fff;}
 
@@ -28,20 +28,14 @@
 
 
   <body>
-    <script src="script.js"></script>
-
+    
+   
     <div class="form-wrap">
-      <form>
-        <h1> Start Your Search! </h1> 
-        <input type="text" placeholder="Name">
-        <input type="text" placeholder="City">
-        <input type="text" placeholder="State"> 
-        <input type="text" placeholder="Blood Type">
-        <input type="text" placeholder="Need">
-        <input type="email" placeholder="Email">
-        <input type="integer" placeholder="Phone Number">
-        <a href="/profile">
-        <input type="button" value="SUBMIT"></a>
+      <form method='POST'>
+       {% csrf_token %}
+
+       {{ form.as_p}}
+        <input type="submit" value="SUBMIT" />
 
       </form>
     </div>
