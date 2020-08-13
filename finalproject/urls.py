@@ -27,7 +27,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('patient/', views.patient),
     path('profile/', views.profile),
-    path('detail/', views.patient_detail),
+     path('detail/<int:pk>', views.patient_detail),
     path('donor/new', views.new_donor, name='new_donor'),
 
     # path('myapp/donor', myapp_views.donor_views, name='donor_views'),

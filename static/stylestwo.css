@@ -1,4 +1,4 @@
-body{background: #c8e1e6;}
+body{background: #2031c9;}
 
 .container-1{
 display: flex;
@@ -70,6 +70,6 @@ h1{text-align: center; color: #ffe2a1; font-weight: normal; margin-bottom: 20px;
 
 input{width: 100%; background: none; border: 1px solid #fff ; border-radius: 3px; padding: 6px 15px; box-sizing: border-box; margin-bottom: 20px; font-size: 16px;}
 
-input[type="button"]{background: #fff; border: 0; color: #f0deb4;}
+input[type="button"]{background: #fff; border: 0; color: #f0deb4;} */
 
 ::placeholder{color: #fff;}

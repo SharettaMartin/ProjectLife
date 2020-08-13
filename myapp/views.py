@@ -16,8 +16,12 @@ def patient(request):
 def profile(request):
   return render(request, 'myapp/profile.html', {})
 
-def patient_detail(request):
-  return render(request, 'myapp/detail.html', {})
+def patient_detail(request, pk):
+  patient = Patient.objects.get(pk=pk)
+  context = {
+        'patient': patient
+    }  
+  return render(request, 'myapp/detail.html', context)
 
 @login_required
 def new_donor(request):

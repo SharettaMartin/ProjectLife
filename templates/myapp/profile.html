@@ -13,10 +13,14 @@
 <div class="wrapper">
   {% block content %}
     <div class="sidebar">
-        <h2>Project Life</h2>
+        <h2>LifeLink</h2>
         <ul>
             <li>Home</li>
             <li>Responses</li>
+            {% for response in patient.responses.all %}
+              <li>{{ response }}</li>
+              {% endfor %}
+
             <li><a href="#", href="/detail"><i class="fas fa-user"><a href="/detail"></i>Profile</a></li>
         </ul> 
     </div>
