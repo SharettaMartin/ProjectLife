@@ -10,8 +10,4 @@ class DonorForm(forms.ModelForm):
           'blood_type',
           'donation_type'
         ]
-
-      
-
-        
-        
+    
