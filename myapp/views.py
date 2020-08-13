@@ -10,6 +10,7 @@ from .models import Donor, Patient
 def home(request):
    return render(request, 'myapp/landing.html', {})
 
+@login_required
 def patient(request):
   form = PatientForm()
   if request.method == 'POST':
@@ -25,6 +26,7 @@ def patient(request):
   }
   return render(request, 'myapp/patient.html', context)
 #change to dashboard
+
 def dashboard(request, pk):
   patient = get_object_or_404(Patient, pk=pk)
   #change to dashboard
@@ -47,7 +49,7 @@ def profile(request, pk):
   #change to profile
   return render(request, 'myapp/profile.html', context)
 
-@login_required
+
 def new_donor(request):
     
     form = DonorForm(request.POST or None)
