@@ -1,0 +1,67 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Form</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'stylestwo.css' %}">
+  </head>
+
+  <style>
+    
+  </style>
+
+
+  <body>
+    <script src="script.js"></script>
+
+    <div class="container-1">
+      {% block content %}
+      <div class="box-1">
+        <img src="assets/avatar_female.png" alt="Avatar" class="profileavi">
+         <h1>User Name</h1>
+         <button class="button">Share</button>
+
+
+      </div>
+      <div class="box-2">
+        <h2>The Medical Match <br> I am looking for has </h2>
+        <p class="blocktext"> BLOOD TYPE {{ patient.blood_type }} </p>
+        <p> WILLING TO DONATE {{ patient.need }}</p>
+        <p>LIVES NEAR {{ patient.city }}</p>
+      </div>
+
+
+      <div class="box-3">
+        
+
+        <div class="form-wrap">
+          <form>
+            <h1> Become a match! </h1>
+            <input type="text" placeholder="Name">
+            <input type="text" placeholder="City">
+            <input type="text" placeholder="Blood Type">
+            <input type="text" placeholder="Organ to Donate">
+            <input type="email" placeholder="Email">
+            <input type="number" placeholder="Phone Number">
+            <input type="button" value="BE AMAZING">
+
+          </form>
+        </div>
+
+        
+      </div>
+
+
+      {% endblock %}
+    </div>
+
+
+
+
+
+  </body>
+</html>

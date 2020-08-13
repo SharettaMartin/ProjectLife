@@ -50,6 +50,14 @@ def profile(request, pk):
   return render(request, 'myapp/profile.html', context)
 
 
+def patient_detail(request, pk):
+  patient = Patient.objects.get(pk=pk)
+  context = {
+        'patient': patient
+    }  
+  return render(request, 'myapp/detail.html', context)
+
+
 def new_donor(request):
     
     form = DonorForm(request.POST or None)

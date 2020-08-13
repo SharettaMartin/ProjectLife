@@ -11,6 +11,7 @@ class DonorForm(forms.ModelForm):
           'donation_type'
         ]
 
+
 class PatientForm(forms.ModelForm):
     class Meta:
         model = Patient
@@ -22,6 +23,7 @@ class PatientForm(forms.ModelForm):
           'need',
                   ]
 
+
 class ResponseForm(forms.ModelForm):
     class Meta:
         model = Response
@@ -30,3 +32,4 @@ class ResponseForm(forms.ModelForm):
     ]
 
         
+
