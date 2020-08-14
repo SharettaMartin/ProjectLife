@@ -7,7 +7,14 @@
 <link rel="stylesheet" type="text/css" href="{% static 'stylesthree.css' %}">
 <style>
 
-
+video {
+  /* border: 1px solid black; */
+  /* background-color: lightblue; */
+  /* padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px; */
+  padding-left: 200px;
+}
 
 
 
@@ -17,16 +24,32 @@
 
 <div class="header">
   {% block content %}
-  <a href="#default" class="logo">LifeLink</a>
+  <a href="https://imgur.com/8xG5gV2"><img class="logo" src="https://i.imgur.com/8xG5gV2.png" title="source: imgur.com" /></a>
 
 </div>
 
 <!-- <div style="padding-left:20px"> -->
 
   <div class="container-1">
-      <div class="box-1">
+      <div class="video">
+        <!-- <video width="600" height="400" autoplay> -->
+        <!-- <video width="600" height="400" autoplay>
+          <source src="assets/matmtest.mp4" type="video/mp4">
+        </video> -->
+
+        <video controls width="600" height="400" autoplay loop>
+          <!-- <source src="assets/projectlifevid.mp4" type="video/mp4"> -->
+          <source src="assets/matmtest.mp4" type="video/mp4">
+          
+          Your browser does not support the video tag.
+        </video>
+
+        <!-- <a href="https://imgur.com/8xG5gV2"><img class="logo" src="https://i.imgur.com/8xG5gV2.png" title="source: imgur.com" /></a> -->
+
         
 
+
+        <!-- </video> -->
       </div>
 
       <div class="box-2">
@@ -40,7 +63,7 @@
 
         <form action="{% url 'new_donor' %}" class="boxinfo">
           <h4> Register to donate. </h4>
-          <input type="submit" value="Start" />
+          <input type="submit" class="button" value="Start" />
         </form>
         </div>
             
