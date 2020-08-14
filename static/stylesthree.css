@@ -10,8 +10,8 @@ body {
 
 .header {
   overflow: hidden;
-  background-color: white;  
-  padding: 20px 10px;
+  background-color: red;  
+  padding: 10px 4px;
   text-align: center
 }
 
@@ -27,7 +27,7 @@ body {
 }
 
 .header a.logo {
-  font-size: 50px;
+  font-size: 70px;
   font-weight: bold;
   text-align: right;
   color: #c8e1e6;
@@ -59,6 +59,12 @@ body {
   }
 }
 
+video{
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+}
+
 
 /* BODY */
 
@@ -85,6 +91,15 @@ color: red;
 }
 
 /* BODY BOXES */
+
+/* .video { 
+  height: 700px;
+  position: centered;
+  display: flex;
+  align-items: center; 
+  flex-direction: column;
+} */
+
 
 .boxinfo {
 color: #261599;

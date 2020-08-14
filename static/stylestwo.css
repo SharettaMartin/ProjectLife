@@ -1,4 +1,4 @@
-body{background: #2031c9;}
+
 
 .container-1{
 display: flex;
@@ -45,7 +45,7 @@ P.blocktext {
 
 h2{
   font-size:60px;
-  color: #ffe2a1;
+  color: #48369b;
 }
 
 
@@ -64,9 +64,9 @@ justify-content: center;
 /* Form details */
 /* .form-wrap{ width:320px; padding: 40px 20px; box-sizing: border-box; transform: translate(-50%, -50%);} */
 
-.form-wrap{ width:320px; background: #f5cdc1 ; position: absolute; right: 50px; top: 150px}
+.form-wrap{ width:400px; background: #3F9B16 ; position: absolute; right: 50px; top: 150px}
 
-h1{text-align: center; color: #ffe2a1; font-weight: normal; margin-bottom: 20px;}
+h1{text-align: center; color: #48369b; font-weight: normal; margin-bottom: 20px;}
 
 input{width: 100%; background: none; border: 1px solid #fff ; border-radius: 3px; padding: 6px 15px; box-sizing: border-box; margin-bottom: 20px; font-size: 16px;}
 
