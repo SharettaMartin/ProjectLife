@@ -33,4 +33,4 @@ urlpatterns = [
     # path('myapp/donor', myapp_views.donor_views, name='donor_views'),
     # path('myapp/add/', myapp_views.add_patient, name='add_patient'),
     # path('myapp.')
-]
+] 
