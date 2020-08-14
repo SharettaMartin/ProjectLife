@@ -1,43 +1,29 @@
-
 {% load static %}
 <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Form</title>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'stylestwo.css' %}">
+  </head>
 
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Side Navigation Bar</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
-	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-</head>
-<body>
+  <style>
+    
+  </style>
 
+  <body>
+    <script src="script.js"></script>
+    
 
-<div class="wrapper">
-      <div class="sidebar">
-        <h2>LifeLink</h2>
-        <ul>
-            <li>Home</li>
-            <li>Responses</li>
-            {% for response in patient.responses.all %}
-              <li>{{ response }}</li>
-              {% endfor %}
-
-            <li><a href="#", href="/detail"><i class="fas fa-user"><a href="/detail"></i>Profile</a></li>
-        </ul> 
-    </div>
-    <div class="main_content">
-        <div class="header">
-          <img src="{% static "assets/avatar_female.png" %}" alt="Avatar" class="avatar">
-          <h3>User Name</h3>
-          </div>  
-
-  
+    <div class="container-1">
+      {% block content %}
       
       <div class="box-1">
         <img src="assets/avatar_female.png" alt="Avatar" class="profileavi">
          <h1>User Name</h1>
          <button class="button">Share</button>
-
 
       </div>
       
@@ -46,7 +32,6 @@
         <p class="blocktext"> BLOOD TYPE <br> WILLING TO DONATE THIER ___ ORGAN  <br> LIVE NEAR ___ CITY</p>
       </div>
       
-
 
       <div class="box-3">
         
@@ -66,10 +51,8 @@
 
       
 
-
-   
+      {% endblock %}
     </div>
-
 
 
 

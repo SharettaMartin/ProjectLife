@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import DonorForm, PatientForm, ResponseForm
 from .models import Donor, Patient
 
-
 # Create your views here.POST]
 
 def home(request):
@@ -42,22 +41,14 @@ def profile(request, pk):
       response = form.save(commit=False)
       response.patient = patient
       response.save()
-      return redirect(to='instructions')
+      return redirect(to='')
   context = {
     'form': form
   }
   #change to profile
   return render(request, 'myapp/profile.html', context)
 
-
-def patient_detail(request, pk):
-  patient = Patient.objects.get(pk=pk)
-  context = {
-        'patient': patient
-    }  
-  return render(request, 'myapp/detail.html', context)
-
-
+@login_required
 def new_donor(request):
     
     form = DonorForm(request.POST or None)
@@ -77,6 +68,12 @@ def instructions(request):
 
 def responses(request):
    return render(request, 'myapp/responses.html', {})
+
+#def list_patients(request):
+ # all_patients = Patient.objects.all()
+ # return render(request, 'myapp/list_patients', context={'myapp': all_patients})
+
+  
 # def home(TemplateView):
     # template = 'home/home.html'
 
@@ -100,6 +97,8 @@ def responses(request):
 #           form = ContactForm(data=request.POST)
 #           if form.is_valid():
 #               form.save()
+#               return redirect(to='')
+#       return render(request, 'myapp/donor.html', {})
 #               return redirect(to='')
 #       return render(request, 'myapp/donor.html', {})
 
