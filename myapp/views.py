@@ -42,14 +42,14 @@ def profile(request, pk):
       response = form.save(commit=False)
       response.patient = patient
       response.save()
-      return redirect(to='instructions')
+      return redirect(to='')
   context = {
     'form': form
   }
   #change to profile
   return render(request, 'myapp/profile.html', context)
 
-
+@login_required
 def new_donor(request):
     
     form = DonorForm(request.POST or None)
@@ -69,6 +69,12 @@ def instructions(request):
 
 def responses(request):
    return render(request, 'myapp/responses.html', {})
+
+#def list_patients(request):
+ # all_patients = Patient.objects.all()
+ # return render(request, 'myapp/list_patients', context={'myapp': all_patients})
+
+  
 # def home(TemplateView):
     # template = 'home/home.html'
 

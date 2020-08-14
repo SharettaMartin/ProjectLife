@@ -27,6 +27,8 @@ urlpatterns = [
 
     path('responses/', views.responses, name='responses'),
 
+    #path('list_patients/', views.list_patients, name='list_patients')
+
 
     # path('myapp/donor', myapp_views.donor_views, name='donor_views'),
     # path('myapp/add/', myapp_views.add_patient, name='add_patient'),
