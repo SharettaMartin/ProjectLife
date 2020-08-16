@@ -41,7 +41,7 @@ def profile(request, pk):
       response = form.save(commit=False)
       response.patient = patient
       response.save()
-      return redirect(to='')
+      return redirect(to='instructions')
   context = {
     'form': form
   }
