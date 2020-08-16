@@ -3,20 +3,18 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="styles.css" rel="stylesheet" type="text/css" />
+<!-- <link href="styles.css" rel="stylesheet" type="text/css" /> -->
 <link rel="stylesheet" type="text/css" href="{% static 'stylesthree.css' %}">
 <style>
 
+
 video {
-  /* border: 1px solid black; */
-  /* background-color: lightblue; */
-  /* padding-top: 50px;
-  padding-right: 30px;
-  padding-bottom: 50px; */
-  padding-left: 200px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  width: 800px;
+  height: auto;
+  padding-left: 100px;
 }
-
-
 
 </style>
 </head>
@@ -28,28 +26,24 @@ video {
 
 </div>
 
-<!-- <div style="padding-left:20px"> -->
+
 
   <div class="container-1">
-      <div class="video">
-        <!-- <video width="600" height="400" autoplay> -->
-        <!-- <video width="600" height="400" autoplay>
-          <source src="assets/matmtest.mp4" type="video/mp4">
-        </video> -->
 
+      <div class="video">
+      
         <video controls width="600" height="400" autoplay loop>
           <!-- <source src="assets/projectlifevid.mp4" type="video/mp4"> -->
+          <!-- <source src="assets/matmtest.mp4" type="video/mp4"> -->
+          <a href="https://imgur.com/FeFQLxO"><img src="https://i.imgur.com/FeFQLxO.mp4" title="source: imgur.com" /></a>
+
+        <!-- <video controls autoplay loop>
           <source src="assets/matmtest.mp4" type="video/mp4">
+        </video> -->
           
-          Your browser does not support the video tag.
         </video>
 
-        <!-- <a href="https://imgur.com/8xG5gV2"><img class="logo" src="https://i.imgur.com/8xG5gV2.png" title="source: imgur.com" /></a> -->
-
         
-
-
-        <!-- </video> -->
       </div>
 
       <div class="box-2">
@@ -62,7 +56,7 @@ video {
         </div>
 
         <form action="{% url 'new_donor' %}" class="boxinfo">
-          <h4> Register to donate. </h4>
+          <h4> I would like to donate an organ </h4>
           <input type="submit" class="button" value="Start" />
         </form>
         </div>
@@ -71,7 +65,7 @@ video {
             
           
 
-      </div>
+    </div>
 
     
 
