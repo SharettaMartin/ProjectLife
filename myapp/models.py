@@ -15,7 +15,6 @@ class Patient(models.Model):
     hospital = models.CharField(max_length=100, null=True, blank=True)
     need = models.CharField(max_length=100)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    
 
 class Donor(models.Model):
     name = models.CharField(max_length=100)
@@ -29,4 +28,3 @@ class Response(models.Model):
   patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='responses')
   def __str__(self):
     return f"{self.message}"
-
