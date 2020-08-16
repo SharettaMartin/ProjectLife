@@ -3,6 +3,8 @@ from django.conf import settings
 from django.urls import path, include
 from myapp import views
 # from django.contrib.auth.views import login
+from django.conf.urls.static import static
+from django.conf import settings
  
 
 urlpatterns = [
@@ -29,4 +31,7 @@ urlpatterns = [
     # path('myapp/donor', myapp_views.donor_views, name='donor_views'),
     # path('myapp/add/', myapp_views.add_patient, name='add_patient'),
     # path('myapp.')
-] 
+
+  ] 
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
