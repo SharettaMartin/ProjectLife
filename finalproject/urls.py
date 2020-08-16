@@ -4,7 +4,7 @@ from django.urls import path, include
 from myapp import views
 # from django.contrib.auth.views import login
 from django.conf.urls.static import static
-from django.conf import settings
+# from django.conf import settings
  
 
 urlpatterns = [
